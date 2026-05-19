@@ -52,6 +52,8 @@ def main():
 
     for item in sorted_characters:
         print(f"{item["char"]}: {item["num"]}")
+
+    print("============= END ===============")
     
 if __name__ == "__main__":
     main()
