@@ -5,9 +5,9 @@ class CharacterCount(TypedDict):
     num: int
 
 def get_num_words(contents: str) -> int:
-    words_len = len(contents.split())
+    num_words = len(contents.split())
 
-    return words_len
+    return num_words
 
 def get_num_chars(contents: str) -> dict[str, int]:
     chars_count: dict[str, int] = {}

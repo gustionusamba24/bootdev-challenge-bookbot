@@ -1,37 +1,53 @@
 import sys
 from stats import get_num_words, get_num_chars, sort_chars_list
 
-def get_book_text(filepath: str) -> str:
+"""
+    fn => get_book_content:
+        Reads the contents of a file and return it as a string.
+"""
+def get_book_content(filepath: str) -> str:
     with open(filepath) as f:
-        file_contents = f.read()
+        book_contents = f.read()
 
-        return file_contents
+        return book_contents
 
+"""
+    fn => main:
+        The entry point of the program.
+"""
 def main():
     # Make sure there are two arguments given
+    # Check if the user provided the path to the book as an argument
     if len(sys.argv) != 2:
         print("Usage: python3 main.py <path_to_book>")
         sys.exit(1)
 
-    # Take the relative path of file from the second argument
+    # Take the relative path of the book
+    # The first argument (index 0) is the script name(in this case is main.py), so we take the second argument (index 1) as the book path
+    # sys.argv is a list of command-line arguments passed on the terminal.
     book_path = sys.argv[1]
     
     # Get book contents
-    book_text = get_book_text(book_path)
+    book_content = get_book_content(book_path)
 
-    # Count the total of words
-    words_len = get_num_words(book_text)
+    # Get the number of words in the book
+    num_words = get_num_words(book_content)
 
-    # find the character and its count (first step)
-    chars_dict = get_num_chars(book_text)
+    # Get the character and its count in the book
+    # For example: {"a": 100, "b": 50, ...}
+    chars_dict = get_num_chars(book_content)
 
-    # change the dict format and sort it from greatest to least by a count
+    # Format the dict of characters 
+    # For example: [{"char": "a", "num": 100}, {"char": "b", "num": 50}, ...]
+    # Also insert only the characters that are alphabetic and ignore the rest of the characters
+    # Sort the list of characters based on the count in descending order
     sorted_characters = sort_chars_list(chars_dict)
 
+    # Print the results
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {book_path}...")
     print("----------- Word Count ----------")
-    print(f"Found {words_len} total words")
+    print(f"Found {num_words} total words")
     print("--------- Character Count -------")
 
     for item in sorted_characters:
