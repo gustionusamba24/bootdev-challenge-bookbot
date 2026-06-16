@@ -26,7 +26,7 @@ def sort_on(chars_tuple: tuple[str, int]) -> int:
     return chars_tuple[1]
 
 def chars_dict_to_sorted_list(chars_dict: dict[str, int]) -> list[tuple[str, int]]:
-    sorted_list = []
+    sorted_list: list[tuple[str, int]] = []
 
     for key in chars_dict:
         if key.isalpha():
@@ -37,14 +37,14 @@ def chars_dict_to_sorted_list(chars_dict: dict[str, int]) -> list[tuple[str, int
 
     return sorted_char_count
 
-def sort_chars_list(chars_dict: dict[str, int]) -> list[CharacterCount]:
-    sorted_list: list[CharacterCount] = []
+# def sort_chars_list(chars_dict: dict[str, int]) -> list[CharacterCount]:
+#     sorted_list: list[CharacterCount] = []
 
-    for key, value in chars_dict.items():
-        if key.isalpha():
-            item: CharacterCount = {"char": key, "num": value}
-            sorted_list.append(item)
+#     for key, value in chars_dict.items():
+#         if key.isalpha():
+#             item: CharacterCount = {"char": key, "num": value}
+#             sorted_list.append(item)
 
-    sorted_list.sort(reverse=True, key=sort_on)
+#     sorted_list.sort(reverse=True, key=sort_on)
 
-    return sorted_list
+#     return sorted_list

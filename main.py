@@ -1,5 +1,5 @@
 import sys
-from stats import get_num_words, get_num_chars, sort_chars_list, chars_dict_to_sorted_list
+from stats import get_num_words, get_num_chars, chars_dict_to_sorted_list
 
 """
     fn => get_book_content:
@@ -44,17 +44,19 @@ def main():
     chars_sorted_list = chars_dict_to_sorted_list(chars_dict)
 
     # Print the results
-    print("============ BOOKBOT ============")
-    print(f"Analyzing book found at {book_path}...")
-    print("----------- Word Count ----------")
+    # print("============ BOOKBOT ============")
+    # print(f"Analyzing book found at {book_path}...")
+    # print("----------- Word Count ----------")
     print(f"Found {num_words} total words")
-    print(chars_sorted_list)
-    print("--------- Character Count -------")
-
+    # print(chars_sorted_list)
     for item in chars_sorted_list:
-        print(f"{item['char']}: {item['num']}")
+        print(item)
+    # print("--------- Character Count -------")
 
-    print("============= END ===============")
+    # for item in chars_sorted_list:
+    #     print(f"{item['char']}: {item['num']}")
+
+    # print("============= END ===============")
     
 if __name__ == "__main__":
     main()
