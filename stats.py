@@ -22,8 +22,20 @@ def get_num_chars(contents: str) -> dict[str, int]:
 
     return chars_count
 
-def sort_on(dict_item: CharacterCount) -> int:
-    return dict_item["num"]
+def sort_on(chars_tuple: tuple[str, int]) -> int:
+    return chars_tuple[1]
+
+def chars_dict_to_sorted_list(chars_dict: dict[str, int]) -> list[tuple[str, int]]:
+    sorted_list = []
+
+    for key in chars_dict:
+        if key.isalpha():
+            item = (key, chars_dict[key])
+            sorted_list.append(item)
+
+    sorted_char_count = sorted(sorted_list, reverse=True, key=sort_on)
+
+    return sorted_char_count
 
 def sort_chars_list(chars_dict: dict[str, int]) -> list[CharacterCount]:
     sorted_list: list[CharacterCount] = []

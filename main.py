@@ -1,5 +1,5 @@
 import sys
-from stats import get_num_words, get_num_chars, sort_chars_list
+from stats import get_num_words, get_num_chars, sort_chars_list, chars_dict_to_sorted_list
 
 """
     fn => get_book_content:
@@ -41,17 +41,18 @@ def main():
     # For example: [{"char": "a", "num": 100}, {"char": "b", "num": 50}, ...]
     # Also insert only the characters that are alphabetic and ignore the rest of the characters
     # Sort the list of characters based on the count in descending order
-    sorted_characters = sort_chars_list(chars_dict)
+    chars_sorted_list = chars_dict_to_sorted_list(chars_dict)
 
     # Print the results
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {book_path}...")
     print("----------- Word Count ----------")
     print(f"Found {num_words} total words")
+    print(chars_sorted_list)
     print("--------- Character Count -------")
 
-    for item in sorted_characters:
-        print(f"{item["char"]}: {item["num"]}")
+    for item in chars_sorted_list:
+        print(f"{item['char']}: {item['num']}")
 
     print("============= END ===============")
     
