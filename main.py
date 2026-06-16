@@ -44,19 +44,16 @@ def main():
     chars_sorted_list = chars_dict_to_sorted_list(chars_dict)
 
     # Print the results
-    # print("============ BOOKBOT ============")
-    # print(f"Analyzing book found at {book_path}...")
-    # print("----------- Word Count ----------")
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}...")
+    print("----------- Word Count ----------")
     print(f"Found {num_words} total words")
-    # print(chars_sorted_list)
+    print("--------- Character Count -------")
+
     for item in chars_sorted_list:
-        print(item)
-    # print("--------- Character Count -------")
+        print(f"{item[0]}: {item[1]}")
 
-    # for item in chars_sorted_list:
-    #     print(f"{item['char']}: {item['num']}")
-
-    # print("============= END ===============")
+    print("============= END ===============")
     
 if __name__ == "__main__":
     main()
